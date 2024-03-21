@@ -10,6 +10,8 @@ services:
     ports:
       - "80:8080"
     # wait for item-db before starting this service
+    environment:
+      - DB_HOST=${DB_HOST}
     depends_on:
       - item-db
     restart: always
