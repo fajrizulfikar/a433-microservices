@@ -1,0 +1,25 @@
+# use version 3 of docker compose
+version: '3'
+
+# to create containers. the total of containers will be made depends on how many instance defined in here
+services:
+  item-app:
+    # pull image from github packages
+    image: ghcr.io/fajrizulfikar/a433-microservices/item-app:v1
+    # bind to port 80 in the host so we could directly access it like this: `localhost:80/localhost`
+    ports:
+      - "80:8080"
+    # wait for item-db before starting this service
+    depends_on:
+      - item-db
+    restart: always
+  item-db:
+    # pull image from docker registry
+    image: mongo:3
+    # use app-db volume that target /data/db
+    volumes:
+      - app-db:/data/db
+    restart: always
+# to create the volume
+volumes:
+  app-db:
