@@ -10,7 +10,7 @@ token=$2
 repository=$3
 
 # build image
-docker build --build-arg NODE_ENV=production -t item-app:v1 .
+docker build -t item-app:v1 .
 
 # list all image
 docker images

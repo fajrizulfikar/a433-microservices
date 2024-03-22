@@ -7,11 +7,7 @@ WORKDIR /app
 # copy all files and directories to working directory
 COPY . .
 
-# read value from build-time arguments
-ARG NODE_ENV=
-
-# set environment variable
-ENV NODE_ENV=${NODE_ENV} DB_HOST=item-db
+ENV NODE_ENV=production DB_HOST=item-db
 
 # install npm packages and build the app
 RUN npm install --production --unsafe-perm && npm run build
