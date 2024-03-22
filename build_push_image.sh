@@ -1,17 +1,16 @@
 # check if all arguments passed to the script
-if [ $# -ne 4 ]; then
-    echo "Usage: $0 <db_host> <your_username> <your_token> <your_repository>"
+if [ $# -ne 3 ]; then
+    echo "Usage: $0 <your_username> <your_token> <your_repository>"
     exit 1
 fi
 
 # bind argument to variable
-db_host=$1
-username=$2
-token=$3
-repository=$4
+username=$1
+token=$2
+repository=$3
 
 # build image
-docker build --build-arg NODE_ENV=production --build-arg DB_HOST=$db_host -t item-app:v1 .
+docker build --build-arg NODE_ENV=production -t item-app:v1 .
 
 # list all image
 docker images

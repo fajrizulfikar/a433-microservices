@@ -9,10 +9,9 @@ COPY . .
 
 # read value from build-time arguments
 ARG NODE_ENV=
-ARG DB_HOST=
 
 # set environment variable
-ENV NODE_ENV=${NODE_ENV} DB_HOST={DB_HOST}
+ENV NODE_ENV=${NODE_ENV} DB_HOST=item-db
 
 # install npm packages and build the app
 RUN npm install --production --unsafe-perm && npm run build
