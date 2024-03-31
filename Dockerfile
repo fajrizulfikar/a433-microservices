@@ -1,5 +1,5 @@
 # pull node image from docker registry
-FROM node:14.21-alpine
+FROM node:18-alpine
 
 # set working directory to /app
 WORKDIR /app
